@@ -11,6 +11,7 @@ from datetime import datetime
 from .security import authorized
 from . import api_bp
 
+
 class SimpleAsyncView(HTTPMethodView):
 
     async def get(self, request):
@@ -29,4 +30,5 @@ class SimpleAsyncView(HTTPMethodView):
     async def delete(self, request):
         return response.text('I am delete method')
 
-api_bp.add_route(SimpleAsyncView.as_view(), '/resource')        
+
+api_bp.add_route(SimpleAsyncView.as_view(), '/resource')

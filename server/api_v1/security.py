@@ -5,6 +5,7 @@ from sanic.log import logger
 
 from functools import wraps
 
+
 def check_request_for_authorization_status(request):
     # Verify if User is Authenticated
     # Authentication logic goes here, for instance cookie, session.
@@ -29,5 +30,7 @@ def authorized():
             else:
                 # the user is not authorized.
                 return json({'status': 'not_authorized'}, 403)
+
         return decorated_function
+
     return decorator

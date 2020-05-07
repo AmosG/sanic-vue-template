@@ -24,5 +24,10 @@
     {
       "url": "heroku/python"
     }
-  ]
+  ],
+  "expo": {
+    "version": "1.0.0",
+    "name": "",
+    "slug": "amos"
+  }
 }

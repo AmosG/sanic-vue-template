@@ -1,18 +1,19 @@
-import imp
+import importlib
 import json
 import os
-# import six
+
 import socket
 import sys
 import time
 import traceback
 import platform
+
 from sanic import request, response
-from sanic.request import Request as _Request
 from sanic.log import logger
 from sanic import Sanic
 from sanic.views import HTTPMethodView
-from sanic.response import text
+# from sanic.response import text
+# from sanic.request import Request as _Request
 
 try:
     from functools import reduce
@@ -199,7 +200,7 @@ class EnvironmentDump(HTTPMethodView):
                                    'micro': sys.version_info.micro,
                                    'releaselevel': sys.version_info.releaselevel,
                                    'serial': sys.version_info.serial}}
-        if imp.find_module('pkg_resources'):
+        if importlib.util.find_spec('pkg_resources'):
             import pkg_resources
             packages = dict([(p.project_name, p.version) for p in pkg_resources.working_set])
             result['packages'] = packages
